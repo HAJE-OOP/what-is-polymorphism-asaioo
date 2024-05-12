@@ -1,5 +1,6 @@
 package org.haje;
 
+
 import org.haje.ducks.DecoyDuck;
 import org.haje.ducks.MallardDuck;
 import org.haje.ducks.RedheadDuck;
@@ -13,7 +14,6 @@ import java.util.Random;
 
 public class DuckGame extends JPanel implements KeyListener {
     private Object duck;
-
     public DuckGame() {
         setFocusable(true);
         addKeyListener(this);
