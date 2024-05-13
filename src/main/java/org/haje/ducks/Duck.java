@@ -3,7 +3,7 @@ package org.haje.ducks;
 import java.awt.event.KeyEvent;
 import java.awt.*;
 
-public class Duck implements Ducks{
+public class Duck extends Things{
     private int x;
     private int y;
 
@@ -11,7 +11,7 @@ public class Duck implements Ducks{
         this.x = x;
         this.y = y;
     }
-
+    @Override
     public void move(KeyEvent e){
         int keyCode = e.getKeyCode();
         switch(keyCode) {

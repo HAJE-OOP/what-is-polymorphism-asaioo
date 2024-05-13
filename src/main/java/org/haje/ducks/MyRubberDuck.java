@@ -1,6 +1,7 @@
 package org.haje.ducks;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class MyRubberDuck extends Duck{
     private int x;
@@ -8,7 +9,10 @@ public class MyRubberDuck extends Duck{
 
     public MyRubberDuck(int x, int y){
         super(x,y);
+        this.x = x;
+        this.y = y;
     }
+    @Override
     public void draw(Graphics2D g2d){
         // Body
         g2d.setColor(Color.YELLOW);
@@ -33,5 +37,23 @@ public class MyRubberDuck extends Duck{
         // Highlight
         g2d.setColor(Color.WHITE);
         g2d.fillOval(x + 122, y - 8, 5, 5);
+    }
+    @Override
+    public void move(KeyEvent e){
+        int keyCode = e.getKeyCode();
+        switch(keyCode) {
+            case KeyEvent.VK_W:
+                this.y -= 5;
+                break;
+            case KeyEvent.VK_S:
+                this.y += 5;
+                break;
+            case KeyEvent.VK_A:
+                this.x -= 5;
+                break;
+            case KeyEvent.VK_D:
+                this.x += 5;
+                break;
+        }
     }
 }

@@ -1,6 +1,7 @@
 package org.haje.ducks;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 
 public class MyMallardDuck extends Duck{
     private int x;
@@ -8,7 +9,10 @@ public class MyMallardDuck extends Duck{
 
     public MyMallardDuck(int x, int y){
         super(x,y);
+        this.x = x;
+        this.y = y;
     }
+    @Override
     public void draw(Graphics2D g2d){
         // Body
         g2d.setColor(new Color(0, 150, 0));
@@ -37,5 +41,23 @@ public class MyMallardDuck extends Duck{
         // Wing
         g2d.setColor(new Color(0, 120, 0));
         g2d.fillArc(x + 20, y + 20, 60, 40, 0, 180);
+    }
+    @Override
+    public void move(KeyEvent e){
+        int keyCode = e.getKeyCode();
+        switch(keyCode) {
+            case KeyEvent.VK_W:
+                this.y -= 5;
+                break;
+            case KeyEvent.VK_S:
+                this.y += 5;
+                break;
+            case KeyEvent.VK_A:
+                this.x -= 5;
+                break;
+            case KeyEvent.VK_D:
+                this.x += 5;
+                break;
+        }
     }
 }
